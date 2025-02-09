@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Amor</title>
+    <style>
+        
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 1s ease;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2 {
+            font-size: 1em;
+            margin-block-start: auto;
+            animation: fadeIn 1s ease-out;
+        }
+        input, button {
+            padding: 12px;
+            margin: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 300px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        input:focus, button:hover {
+            transform: scale(1.05);
+        }
+        p {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Adicionando prefixos para garantir compatibilidade com Safari */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Prefixos para Safari e outros navegadores */
+        @-webkit-keyframes fadeIn {  /* Safari e Chrome */
+            0% { opacity: 0; -webkit-transform: translateY(-20px); }
+            100% { opacity: 1; -webkit-transform: translateY(0); }
+        }
+
+        @-webkit-keyframes typing {  /* Safari e Chrome */
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Transformação e transições com prefixo para Safari */
+        input, button {
+            -webkit-transition: transform 0.3s ease; /* Safari */
+            transition: transform 0.3s ease;
+        }
+
+        input:focus, button:hover {
+            -webkit-transform: scale(1.05); /* Safari */
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body> 
+    <h1>Descubra se você é o amor da vida da Júlia! ❤️</h1>
+    <h2>A Júlia é muito exigente, hein!</h2>
+
+    <label for="nome">Nome <span style="color: red;">*</span></label>
+    <input type="text" id="nome" placeholder="Digite seu nome"> 
+    <p id="erroNome" style="color: red; display: none;">Campo obrigatório!</p>
+
+    <label for="data">Data de Nascimento <span style="color: red;">*</span></label> 
+    <input type="date" id="dataNascimento" placeholder="Digite sua data de nascimento">
+    <p id="erroData" style="color: red; display: none;">Campo obrigatório!</p>
+
+    <label for="idade">Idade <span style="color: red;">*</span></label>
+    <input type="number" id="idade" placeholder="Escolha sua idade">
+    <p id="erroIdade" style="color: red; display: none;">Campo obrigatório!</p>
+
+    <button onclick="verificarAmorDataIdade()">Verificar</button>
+    <p id="mensagem"></p>
+
+    
+<p id="mensagem"></p>
+
+    <script>
+        function escreverTexto(mensagem, elemento) {
+            clearInterval(elemento.intervalo); // Para animações anteriores
+            let i = 0;
+            elemento.innerHTML = '';  
+            elemento.intervalo = setInterval(function() {
+                if (i < mensagem.length) {
+                    elemento.innerHTML += mensagem.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(elemento.intervalo);
+                }
+            }, 100);
+        }
+
+        function verificarAmorDataIdade() {
+            let nomeInput = document.getElementById("nome");
+            let dataInput = document.getElementById("dataNascimento");
+            let idadeInput = document.getElementById("idade");
+
+            let nome = nomeInput.value.trim();
+            let data = dataInput.value;
+            let idade = parseInt(idadeInput.value);; // Corrigido para número
+
+            let erroNome = document.getElementById("erroNome");
+            let erroData = document.getElementById("erroData");
+            let erroIdade = document.getElementById("erroIdade");
+
+            let mensagem = document.getElementById("mensagem");
+            let nomesAceitos = ["José Victor Cunha Braga", "José Victor", "José", "Zeze", "Zé Vitu"];
+            let dataPermitida = "2005-03-16";
+            let idadePermitida = 19;
+
+            let camposValidos = true;
+
+             // Verifica se o nome está vazio
+             if (nome === "") {
+                erroNome.style.display = "block";
+                camposValidos = false;
+            } else {
+                erroNome.style.display = "none";
+            }
+
+            // Verifica se a data está vazia
+            if (data === "") {
+                erroData.style.display = "block";
+                camposValidos = false;
+            } else {
+                erroData.style.display = "none";
+            }
+
+            
+
+            // Se algum campo estiver inválido, não continua
+            if (!camposValidos) {
+                return;
+            }
+
+
+            if (nomesAceitos.includes(nome) && data === dataPermitida && idade === idadePermitida) {
+                escreverTexto("Você é o amor da vida da Júlia! ❤️", mensagem);
+                mensagem.style.color = "green";
+                document.body.style.backgroundColor = "#f0f8f0";
+
+                 // Redireciona para outra página
+                setTimeout(function() {
+                    window.location.href = "pgndoiss.html";  // Altere "outra_pagina.html" para o endereço desejado
+            }, 4000);  // Aguarda 4 segundos antes de redirecionar
+
+            } else {
+                escreverTexto("A Júlia não tá nem aí para você 😢. Tente novamente!", mensagem);
+                mensagem.style.color = "red";
+                document.body.style.backgroundColor = "#f8f0f0";
+                nomeInput.value = "";
+                nomeInput.focus();
+            }
+        }
+    </script>
+</body>
+</html>
+
+

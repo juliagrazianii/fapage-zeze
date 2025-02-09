@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História</title>
+    <style>
+        body { 
+            background-color: rgb(255, 203, 211);
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .titulo {
+            text-align: center;
+            width: 100%;
+            padding: 5px 0;
+            position: absolute; /* Mantém fixo no topo */
+            top: 0;
+            background: rgb(255, 203, 211); /* Mesmo fundo do body */
+            z-index: 10; /* Para garantir que fique sobre os outros elementos */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; /* Aumentei o espaço entre os elementos */
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .countdown-container {
+            width: 250px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 2em;
+            color: #74ff33;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .playlist-container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 30px; /* Distância entre a contagem regressiva e a playlist */
+        }
+
+        .playlist-container h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .playlist-container iframe {
+            width: 100%;
+            height: 200px; /* Ajuste a altura conforme necessário */
+            border-radius: 10px;
+        }
+
+        .container-alinhado {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Alinha os itens no centro */
+            gap: 20px; /* Distância entre a contagem e a playlist */
+        }
+
+
+        .carrossel {
+            position: relative;
+            width: 60%; /* Aumentei o carrossel */
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .fotos {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .foto {
+            min-width: 100%;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-height: 700px; /* Aumentei a altura das imagens */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .caption {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        .prev {
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .countdown-container {
+                width: 90%;
+            }
+
+            .carrossel {
+                width: 90%;
+            }
+
+            img {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <div class="titulo">
+        <h1>FÃ PAGE DO ZEZÉ🤍</h1>
+    </div>
+    
+    <div class="container">
+
+        <div class="container-alinhado">
+            <!-- Contagem Regressiva -->
+            <div class="countdown-container">
+                <h1>Contagem regressiva pra eu encher seu saco</h1>
+                <div class="countdown" id="countdown"></div>
+            </div>
+        
+            <div class="playlist-container">
+                <h2>Nossa Playlist 💖</h2>
+                <iframe width="500" height="300" 
+                    src="https://www.youtube.com/embed/videoseries?list=PLmegBHCfGfo3Z_bSpkH1oe0-oDkWyQWUs&si=jul6POrsjXFtIxPF" 
+                    frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        
+        <!-- Carrossel de fotos -->
+        <div class="carrossel">
+            <div class="fotos">
+                <div class="foto">
+                    <img src="IMG_2517.jpg" alt="Foto 1">
+                    <div class="caption">NOSSA PRIMEIRA FOTINHO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_2568.jpg" alt="Foto 2">
+                    <div class="caption">VOCÊ E O MR. MAGOO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_2867.jpg" alt="Foto 3">
+                    <div class="caption">CHAMEGUINHOOO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_2883.jpg" alt="Foto 4">
+                    <div class="caption">AMANTE DA NATUREZA</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_3163.jpg" alt="Foto 5">
+                    <div class="caption">BEIJOCAS</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_3298.jpg" alt="Foto 6">
+                    <div class="caption">AMASSADINHOS</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_3486.jpg" alt="Foto 7">
+                    <div class="caption">TE AMO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_3493.jpg" alt="Foto 8">
+                    <div class="caption">AÇAI GOTOSO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_3573.jpg" alt="Foto 9">
+                    <div class="caption">A GENTE TE AMA</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_6941.jpg" alt="Foto 10">
+                    <div class="caption">RISOTTINHO</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_7270.jpg" alt="Foto 11">
+                    <div class="caption">tudo com você é lindo...</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_7322.jpg" alt="Foto 12">
+                    <div class="caption">👀</div>
+                </div>
+                <div class="foto">
+                    <img src="IMG_7407.jpg" alt="Foto 13">
+                    <div class="caption">FELIZZZZ</div>
+                </div>
+                <div class="foto">
+                    <img src="1DE88169-2125-4C5B-96E3-284FB9624B75.JPG" alt="Foto 3">
+                    <div class="caption">ANO NOVOOOO</div>
+                </div>
+                <div class="foto">
+                    <img src="b371bcff-e6b9-4c31-b4ed-d2fe874f8ddd.JPG" alt="Foto 3">
+                    <div class="caption">INDO PRO NOSSO LUGAR MÁGICO</div>
+                </div>
+            </div>
+
+            <!-- Botões de navegação -->
+            <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+            <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let indiceAtual = 0;
+
+        function mudarSlide(direcao) {
+            const slides = document.querySelectorAll('.foto');
+            const totalSlides = slides.length;
+
+            indiceAtual += direcao;
+
+            if (indiceAtual < 0) {
+                indiceAtual = totalSlides - 1;
+            }
+            if (indiceAtual >= totalSlides) {
+                indiceAtual = 0;
+            }
+
+            const fotosContainer = document.querySelector('.fotos');
+            fotosContainer.style.transform = `translateX(${-indiceAtual * 100}%)`;
+        }
+
+        // Defina a data do evento
+        const eventoData = new Date("Jun 25, 2025 12:00:00").getTime();
+
+        // Atualize a contagem regressiva a cada 1 segundo
+        const x = setInterval(function() {
+            const agora = new Date().getTime();
+            const distancia = eventoData - agora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+            if (distancia < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "O evento começou!";
+            }
+        }, 1000);
+
+        let contador = 0;
+
+        function aumentarContador() {
+            contador++;
+            document.getElementById("contador").innerText = contador;
+        }
+
+    </script>
+</body>
+</html>
